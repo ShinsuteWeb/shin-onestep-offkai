@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>オフ会の記録 | シンOneStep</title>
+<meta name="description" content="シンOneStep（高齢者オタク向けオープンチャット）のオフ会の記録">
+<meta property="og:title" content="オフ会の記録 | シンOneStep">
+<meta property="og:description" content="シンOneStepのオフ会の記録まとめ">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --bg:#f5f4ef; --card:#fff; --ink:#24362b; --muted:#68756e; --line:#e2e5e0;
+  --green:#4e8067; --green-dark:#3d6a54;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+header{text-align:center;padding:34px 20px 6px}
+header .mark{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--green);color:#f5f4ef;font-size:22px}
+header h1{font-size:25px;margin:10px 0 4px;letter-spacing:.02em}
+header p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+main{width:min(100%,680px);margin:0 auto;padding:18px 16px 40px}
+.stats{display:flex;gap:12px;justify-content:center;margin:8px 0 20px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 20px;text-align:center;min-width:110px}
+.stat b{display:block;font-size:20px}
+.stat span{font-size:11px;color:var(--muted)}
+h2.sec{font-size:13px;letter-spacing:.12em;color:var(--muted);margin:22px 0 10px;font-weight:700}
+.upcoming{background:#fdf3d8;border:1.5px dashed #d9a441;border-radius:16px;padding:16px 18px;color:#4a3a10}
+.upcoming .t{font-weight:700;font-size:15px;margin-bottom:4px}
+.upcoming .d{font-size:13px;line-height:1.8}
+article.off{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px;box-shadow:0 8px 24px rgba(36,54,43,.05)}
+.off .head{display:flex;gap:12px;align-items:flex-start}
+.off .num{flex:none;width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+.off .title{font-size:16.5px;font-weight:700;line-height:1.5}
+.off .date{font-size:12.5px;color:var(--green);font-weight:700;margin-top:2px}
+.off dl{margin:12px 0 0;font-size:13.5px;line-height:1.75}
+.off dt{float:left;clear:left;width:3.6em;color:var(--muted);font-size:12px;font-weight:700;padding-top:2px}
+.off dd{margin:0 0 6px 3.6em}
+.off .note{margin:8px 0 0 3.6em;font-size:13px;line-height:1.8;color:#3c4f45;background:#f2f5f1;border-radius:10px;padding:10px 12px}
+@media(max-width:560px){.off .note{margin-left:0}.off dd{margin-left:3.2em}.off dt{width:3.2em}}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:0 16px 34px;line-height:1.8}
+[hidden]{display:none!important}
+
+/* パスワードゲート */
+#passwordGate{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:var(--bg);padding:24px}
+#passwordGate[hidden]{display:none!important}
+.gatePanel{width:min(100%,420px);padding:28px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 48px rgba(36,54,43,.14)}
+.gatePanel h2{margin:0 0 8px;font-size:21px}
+.gatePanel p{margin:0 0 18px;color:var(--muted);font-size:13.5px;line-height:1.7}
+.gatePanel label{display:block;margin-bottom:6px;font-size:13px;font-weight:700}
+.gatePanel input{width:100%;height:46px;padding:0 12px;border:1px solid #cbd6da;border-radius:8px;font:inherit}
+.gatePanel button{width:100%;height:46px;margin-top:12px;border:0;border-radius:8px;background:var(--green);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.gateError{min-height:1.5em;margin-top:10px!important;color:#b42318!important}
+</style>
+</head>
+<body>
+
+<div id="passwordGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+  <form class="gatePanel" id="passwordForm">
+    <h2 id="gateTitle">オフ会の記録</h2>
+    <p>シンOneStepのメンバー向けページです。共通パスワードを入力してください。</p>
+    <label for="gatePassword">閲覧パスワード</label>
+    <input id="gatePassword" type="password" autocomplete="current-password" required autofocus>
+    <button type="submit">開く</button>
+    <p id="gateError" class="gateError" aria-live="polite"></p>
+  </form>
+</div>
+
+<header>
+  <div class="mark">✦</div>
+  <h1>オフ会の記録</h1>
+  <p>シンOneStep（高齢者オタク向けオープンチャット）のオフ会まとめ</p>
+</header>
+
+<main>
+  <div class="stats">
+    <div class="stat"><b>11</b><span>開催回数</span></div>
+    <div class="stat"><b>2026年4月〜</b><span>記録の期間</span></div>
+  </div>
+
+  <h2 class="sec">これからの予定</h2>
+  <div class="upcoming">
+    <div class="t">2026年11月7日（土）大阪オフ会</div>
+    <div class="d">10:00〜 ひらパー「ALL OF EVANGELION展」／13:30〜 ランチ（天王寺ミオ わのわカフェ、4名で予約済み）／18:30〜 大阪市立美術館「ENLIGHTENMENT」<br>参加：えむちょまさん、ひろこさん、たかさん、あんちゃん（ゆきさんは検討中）</div>
+  </div>
+
+  <h2 class="sec">これまでのオフ会（新しい順）</h2>
+
+  <article class="off">
+    <div class="head"><span class="num">11</span><div><div class="title">ゴジラ-0.0上映＋落語オフ</div><div class="date">2026年11月3日（火・祝）</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>TOHOシネマズ上野（『ゴジラ-0.0』轟音上映、13:20〜15:50）→ 鈴本演芸場（落語・夜の部）→ 権兵衛 上野店（飲み会）</dd>
+      <dt>参加</dt><dd>4名：あんちゃん、はたさん、あおいさん、かりたろうさん（落語から参加）</dd>
+    </dl>
+    <p class="note">映画のあと上野で落語の夜の部へ（大トリは松柳亭鶴枝さん、演目は「夢金」）。かりたろうさんは映画は見ず落語から合流。その後は、あおいさん提案の居酒屋「権兵衛 上野店」で飲み会。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">10</span><div><div class="title">ユニバホラーナイトオフ</div><div class="date">2026年10月中旬（17日前後）</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>ユニバーサル・スタジオ・ジャパン（ホラーナイト）＋京都（2泊3日組も）</dd>
+      <dt>参加</dt><dd>3名：あおいさん、はたさん、清水さん</dd>
+    </dl>
+    <p class="note">ひろこさんの「ホラーナイトに行きたい」から始まった企画。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">9</span><div><div class="title">超かぐや姫！ ULTRA 4DXをみんなで見ようオフ会</div><div class="date">2026年10月4日（日）で日程決定</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>（劇場は記録内に明記なし）</dd>
+      <dt>参加</dt><dd>部屋の参加者：あんちゃん、あおいさん、はたさん、埴輪さん、riverさん</dd>
+    </dl>
+    <p class="note">9/27がはたさんNGのため10/4に決定。4DXの上映が10/4まで続くかが心配されていた。実施当日の記録は、共有された分には含まれていません。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">8</span><div><div class="title">まどマギ ワルプルギスの廻天 ＋ 超かぐや姫！サンシャイン水族館オフ会</div><div class="date">2026年8月30日（日）</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>グランドシネマサンシャイン池袋（『ワルプルギスの廻天』）→ サンシャイン水族館（『超かぐや姫！』コラボ・18時の回）</dd>
+      <dt>参加</dt><dd>当日発言確認・8名：あんちゃん、あおいさん、riverさん、ソロさん、かのさん、ゆうさん、はたさん、埴輪さん</dd>
+    </dl>
+    <p class="note">映画グッズ購入やクレーンゲームでも盛り上がった。部屋には他に かなえさん、荒鷹さん も参加。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">7</span><div><div class="title">まどマギ新編リバイバル上映オフ＋カラオケオフ</div><div class="date">2026年8月23日（日）</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>映画館（新編リバイバル上映）＋ 代官山 蔦屋書店 ＋ カラオケ歌広場 新宿三丁目</dd>
+      <dt>参加</dt><dd>あんちゃん、はたさん、埴輪さん（ハニー）、ゴロウさん（カラオケから参加）、あおいさん</dd>
+    </dl>
+    <p class="note">リバイバル上映では「廻天」の5分映像も。カラオケの手配はゴロウさん。あんちゃんのカラオケ練習（ボイトレ通い）の成果披露の場でもあった。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">6</span><div><div class="title">Penguinライブ後飲み会オフ</div><div class="date">2026年8月8日（土）20:00〜</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>赤羽 トロ函（席のみ予約・5名）</dd>
+      <dt>参加</dt><dd>5名：あんちゃん、あおいさん、うーさん、かなえさん、はたさん</dd>
+    </dl>
+    <p class="note">PENGUIN RESEARCHのライブ後に集合。お店は投票で「トロ函」に決定。牡蠣・かま焼き・刺身など。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">5</span><div><div class="title">まどマギ一気見オフ</div><div class="date">2026年7月25日（土）13:30〜22:00（上映は15:00〜21:00）</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>Aivicスペース池袋トキワB101号店（池袋のレンタルスペース）</dd>
+      <dt>参加</dt><dd>参加予定14名：あんちゃん、あのさん、かのさん、埴輪さん、エーテルさん、荒鷹さん、あおいさん、ゴロウさん、ゆうさん、はたさん、梨紗さん、叶さん、ひろっしーさん、うーさん</dd>
+    </dl>
+    <p class="note">正式タイトルは「魔法少女まどか☆マギカ ワルプルギスの廻天公開前の予習としてまどマギを一気見しよう！オフ会」。総集編＋新編を一気見。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">4</span><div><div class="title">上伊那ぼたん × ヤマハほろ酔いサウンドテラスに行こうオフ＋食事</div><div class="date">2026年7月22日（水）17:30〜21:00</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>Yamaha Sound Crossing Shibuya（『上伊那ぼたん』コラボ）→ PiNCHO! 鉄板スペイン串（渋谷）</dd>
+      <dt>参加</dt><dd>5名＋1名：あんちゃん、ゆうさん、叶さん、埴輪さん（ハニー）、はたさん ＋ 梨紗さん（食事から参加）</dd>
+    </dl>
+    <p class="note">コラボを堪能したあとスペイン串で食事。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">3</span><div><div class="title">（緊急）カレーランチオフ会 in 東京駅付近</div><div class="date">2026年7月20日（月）</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>東京駅付近（ビリヤニ大澤）</dd>
+      <dt>参加</dt><dd>2名：あんちゃん、ひろこさん</dd>
+    </dl>
+    <p class="note">急きょ決まった少人数ランチ。「ビリヤニ食べよ」の一言から実現。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">2</span><div><div class="title">ぼざろ都庁プロジェクションマッピングを見ようオフ</div><div class="date">2026年7月4日（土）に開催（6月27日は台風で中止）</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>東京都庁（新宿）プロジェクションマッピング → その後、食事会</dd>
+      <dt>参加</dt><dd>参加予定8名：あんちゃん、埴輪さん、あおいさん、ゴロウさん、ゆうさん、はたさん、梨紗さん（PMのみ予定）、叶さん</dd>
+    </dl>
+    <p class="note">6/27当日はあんちゃんのライブ（Zepp）後に新宿で一部メンバー（梨紗さん・はたさん・埴輪さん・あおいさん・ゴロウさん）と顔合わせのみ。1週間後の7/4に無事リベンジ開催。</p>
+  </article>
+
+  <article class="off">
+    <div class="head"><span class="num">1</span><div><div class="title">突発池袋オフ会</div><div class="date">2026年4月24日（金）18:30ごろ〜22:00ごろ</div></div></div>
+    <dl>
+      <dt>場所</dt><dd>秋葉原で合流 → 池袋アニメイト → 池袋で飲み会</dd>
+      <dt>参加</dt><dd>6名：あんちゃん、埴輪さん、うーさん、かのさん、叶さん、ゴロウさん</dd>
+    </dl>
+    <p class="note">あんちゃんが秋葉原ビックカメラでグッズ探し中（アクスタは売り切れ）、同じく秋葉原にいた埴輪さんと「リアルエンカウント」。そのまま2人で池袋アニメイトへ行き、池袋にいた叶さん、近くにいた うーさん・かのさん、仕事終わりのゴロウさんが合流して飲み会に。ゴロウさん曰く「シンステ実質初のオフ会」。超かぐや姫の話で盛り上がった。</p>
+  </article>
+</main>
+
+<footer>
+  開催日順に1から番号を振っています。参加者は部屋の参加者・当日の発言・アナウンスから分かる範囲で記載しています。<br>
+  新しいオフ会があれば、日付順に差し込んで番号を振り直します。
+</footer>
+
+<script>
+const passwordForm=document.querySelector('#passwordForm'),gatePassword=document.querySelector('#gatePassword'),gateError=document.querySelector('#gateError'),passwordGate=document.querySelector('#passwordGate');
+passwordForm.addEventListener('submit',async event=>{event.preventDefault();gateError.textContent='';try{const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(gatePassword.value));const hash=Array.from(new Uint8Array(digest),byte=>byte.toString(16).padStart(2,'0')).join('');if(hash==='14e18b67771a66cb08559baef772ba9537688e3f5996e44beefbb8d9ae11772b'){passwordGate.hidden=true}else{gateError.textContent='パスワードが違います。';gatePassword.select()}}catch{gateError.textContent='パスワードを確認できません。HTTPSで開いてください。'}});
+</script>
+<script>
+/* シンOneStepポータル連携（ポータルで保存したパスワードがあれば自動で開く） */
+(function(){
+  var KEY='onestep.portal.v1';
+  function read(){try{var j=JSON.parse(localStorage.getItem(KEY)||'null');if(!j||!j.pw||!j.exp)return null;if(Date.now()>j.exp){localStorage.removeItem(KEY);return null;}return j.pw;}catch(e){return null;}}
+  function save(pw){try{localStorage.setItem(KEY,JSON.stringify({pw:pw,exp:Date.now()+30*24*60*60*1000}));}catch(e){}}
+  function clearStore(){try{localStorage.removeItem(KEY);}catch(e){}}
+  function sha(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(d){return Array.from(new Uint8Array(d)).map(function(b){return b.toString(16).padStart(2,'0');}).join('');});}
+  var HASH='14e18b67771a66cb08559baef772ba9537688e3f5996e44beefbb8d9ae11772b';
+  var gate=document.getElementById('passwordGate');
+  var pw=read();
+  if(pw&&gate){sha(pw).then(function(h){if(h===HASH){gate.hidden=true;}else{clearStore();}});}
+  var form=document.getElementById('passwordForm'),input=document.getElementById('gatePassword');
+  if(form&&input){form.addEventListener('submit',function(){var v=input.value;if(v){sha(v).then(function(h){if(h===HASH){save(v);}});}});}
+})();
+</script>
+</body>
+</html>
