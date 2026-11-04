@@ -186,11 +186,6 @@ footer{text-align:center;color:var(--muted);font-size:11px;padding:0 16px 34px;l
   </article>
 </main>
 
-<footer>
-  開催日順に1から番号を振っています。参加者は部屋の参加者・当日の発言・アナウンスから分かる範囲で記載しています。<br>
-  新しいオフ会があれば、日付順に差し込んで番号を振り直します。
-</footer>
-
 <script>
 const passwordForm=document.querySelector('#passwordForm'),gatePassword=document.querySelector('#gatePassword'),gateError=document.querySelector('#gateError'),passwordGate=document.querySelector('#passwordGate');
 passwordForm.addEventListener('submit',async event=>{event.preventDefault();gateError.textContent='';try{const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(gatePassword.value));const hash=Array.from(new Uint8Array(digest),byte=>byte.toString(16).padStart(2,'0')).join('');if(hash==='14e18b67771a66cb08559baef772ba9537688e3f5996e44beefbb8d9ae11772b'){passwordGate.hidden=true}else{gateError.textContent='パスワードが違います。';gatePassword.select()}}catch{gateError.textContent='パスワードを確認できません。HTTPSで開いてください。'}});
